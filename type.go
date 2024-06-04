@@ -1,4 +1,4 @@
-package gologstash
+package gostash
 
 import "github.com/silenceper/pool"
 

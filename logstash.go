@@ -17,5 +17,7 @@ func (l *GoStash) StringLog(str string) {
 		log.Printf("[Logstash Logger] Failed to send log String message: %s\n", connWriteError)
 	}
 
-	_ = l.Pool.Put(connection)
+	defer func() {
+		_ = connection.(net.Conn).Close()
+	}()
 }
